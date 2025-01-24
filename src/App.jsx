@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import AppLayout from "./layouts/AppLayout"
-
+import HomePage from "./pages/HomePage"
+import MoviesPage from "./pages/MoviesPage"
 
 function App() {
 
@@ -9,7 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movies" element={<MoviesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
@@ -17,4 +19,4 @@ function App() {
   )
 } 
 
-export default App
+export default App;
