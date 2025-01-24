@@ -1,7 +1,9 @@
 const MovieCard = ({movie}) => {
+
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     return(
+
         <div className="card">
             <img src={
                     movie.image 
@@ -14,11 +16,13 @@ const MovieCard = ({movie}) => {
                     {movie.title}
                 </h3>
                 <div>{movie.director}</div>
-                <div>Released: {movie.release_year}</div>
+                <div>Rilasciato: {movie.release_year}</div>
                 <p>{movie.abstract}</p>
             </div>
         </div>
+
     )
+    
 }
 
 export default MovieCard;

@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom"
 
 const MainNav = () => {
+
     const navLinks = [
+
         {
             path: "/",
             title: "Home",
@@ -10,9 +12,11 @@ const MainNav = () => {
             path: "/movies",
             title: "Film",
         }
+
     ]
 
     return(
+
         <>
             <ul>
                 {navLinks.map((curLink, index) => (
@@ -24,7 +28,9 @@ const MainNav = () => {
                 ))}
             </ul>
         </>
+
     )
+    
 }
 
 export default MainNav;
