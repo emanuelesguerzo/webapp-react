@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
 
 const MoviesPage = () => {
 
@@ -12,7 +13,6 @@ const MoviesPage = () => {
         })
     }, [])
 
-
     return (
         <>
             <section>
@@ -21,10 +21,14 @@ const MoviesPage = () => {
             </section>
             <section>
                 <h2>Elenco di Film</h2>
-                <ul>
-                    {movies.map((curMovie) => (<li key={curMovie.id}>{curMovie.title}</li>))}
-                </ul>
-            </section>
+                <div>
+                    {movies.map((curMovie) => (
+                        <div>
+                            <MovieCard movie={curMovie}/>
+                        </div>
+                    ))}
+                </div>
+        </section >
         </>
     )
 }

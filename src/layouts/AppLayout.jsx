@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom"
+import AppHeader from "../components/AppHeader"
+import AppFooter from "../components/AppFooter"
 
 const AppLayout = () => {
     return (
         <>
-            <header>Ciao sono un header</header>
+            <AppHeader />
             <main>{<Outlet />}</main>
-            <footer>Ciao sono il footer</footer>
+            <AppFooter />
         </>
     )
 }
