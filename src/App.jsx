@@ -14,7 +14,7 @@ function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/movies" element={<MoviesPage />} />
-            <Route path="/movies/:id" element={<SingleMoviePage />} />
+            <Route path="/movies/:slug" element={<SingleMoviePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -5,43 +5,46 @@ import ReviewCard from "../components/ReviewCard";
 
 const SingleMoviePage = () => {
 
-    const { id } = useParams();
+    const { slug } = useParams();
     const [movie, setMovie] = useState(null);
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
     useEffect(() => {
 
-        axios.get(`${backendUrl}/movies/${id}`).then((resp) => {
+        axios.get(`${backendUrl}/movies/${slug}`).then((resp) => {
             setMovie(resp.data.data);
         });
 
     }, []);
 
     return (
+
         <>
             {movie && (
                 <>
-                    <section>
+                    <section className="details container">
                         <img
-                            className=""
+                            className="detail-image"
                             src={`${backendUrl}/poster-images/${movie.image}`}
                             alt=""
                         />
                         <h1>{movie.title}</h1>
-                        <h2 className="">{movie.author}</h2>
-
-                        <p>Genre: {movie.genre}</p>
-                        <p>{movie.abstract}</p>
+                        <p className="author-name">{movie.director}</p>
+                        <p className="vote">Voto medio: {movie.vote_avg}</p>
+                        <p className="genre">Genere: {movie.genre}</p>
+                        <p className="movie-abstract">{movie.abstract}</p>
                     </section>
                     <section>
-                        <div className="">
+                        <div className="container reviews">
                             {movie.reviews.map(curReview => <ReviewCard key={curReview.id} review={curReview} />)}
                         </div>
                     </section>
                 </>
             )}
         </>
+
     )
+    
 }
 
 export default SingleMoviePage;

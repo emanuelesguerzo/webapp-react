@@ -132,7 +132,7 @@ const MoviesPage = () => {
                         onClick={getMovies}
                         className="search-btn"
                     >
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i className="fa-solid fa-magnifying-glass"></i>
                     </button>
 
                 </div>
@@ -145,7 +145,7 @@ const MoviesPage = () => {
                         ))}
                     </div>
                 ) : (
-                    <div>
+                    <div className="empty-list">
                         Nessun film trovato
                     </div>
                 )}

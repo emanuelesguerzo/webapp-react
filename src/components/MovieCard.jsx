@@ -13,15 +13,18 @@ const MovieCard = ({movie}) => {
                         : "https://placehold.co/300x300"} 
                  alt={`Copertina del film ${movie.title}`} 
             />
-            <div>
+            <div className="card-text">
                 <h3>
                     {movie.title}
                 </h3>
-                <div>{movie.director}</div>
-                <div>Rilasciato: {movie.release_year}</div>
-                <p>{movie.abstract}</p>
-                <Link to={`/movies/${movie.id}`}>
-                    Mostra Dettagli <i class="fa-solid fa-arrow-right"></i>
+                <p className='author-name'>{movie.director}</p>
+                <p className='year-release'>Rilasciato nel {movie.release_year}</p>
+                <p className='movie-abstract'>{movie.abstract}</p>
+                <Link
+                    to={`/movies/${movie.slug}`}
+                    className='detail-link'
+                >
+                    Mostra Dettagli <i className="fa-solid fa-arrow-right"></i>
                 </Link>
             </div>
         </div>
