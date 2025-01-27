@@ -7,13 +7,15 @@ const AppLayout = () => {
     return (
 
         <>
-            <AppHeader />
-            <main>{<Outlet />}</main>
-            <AppFooter />
+            <div className="wrapper">
+                <AppHeader />
+                <main>{<Outlet />}</main>
+                <AppFooter />
+            </div>
         </>
 
     )
-    
+
 }
 
 export default AppLayout;

@@ -86,7 +86,7 @@ const MoviesPage = () => {
             <section>
                 <h2>Elenco di Film</h2>
                 <div>
-                    
+
                     {/* Filter by Genre */}
                     <select
                         name="" 
@@ -136,9 +136,9 @@ const MoviesPage = () => {
 
                 </div>
                 {movies.length > 0 ? (
-                    <div>
+                    <div className="row ">
                         {movies.map((curMovie) => (
-                            <div key={curMovie.id}>
+                            <div key={curMovie.id} className="col">
                                 <MovieCard movie={curMovie} />
                             </div>
                         ))}
