@@ -18,7 +18,7 @@ const MainNav = () => {
     return(
 
         <>
-            <ul>
+            <ul className="nav">
                 {navLinks.map((curLink, index) => (
                     <li key={index}>
                         <NavLink to={curLink.path}>

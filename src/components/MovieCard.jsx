@@ -21,7 +21,7 @@ const MovieCard = ({movie}) => {
                 <div>Rilasciato: {movie.release_year}</div>
                 <p>{movie.abstract}</p>
                 <Link to={`/movies/${movie.id}`}>
-                    Mostra Dettagli
+                    Mostra Dettagli <i class="fa-solid fa-arrow-right"></i>
                 </Link>
             </div>
         </div>

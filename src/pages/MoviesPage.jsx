@@ -79,14 +79,14 @@ const MoviesPage = () => {
     return (
 
         <>
-            <section>
+            <section className="presentation">
                 <h1>Serata film?</h1>
-                <p>Vedi i film che abbiamo preparato per te</p>
+                <p>Vedi i film che abbiamo preparato per te!</p>
             </section>
             <section>
                 <h2>Elenco di Film</h2>
-                <div>
-
+                <div className="searchbar">
+                    
                     {/* Filter by Genre */}
                     <select
                         name="" 
@@ -124,14 +124,15 @@ const MoviesPage = () => {
                         onChange={(event) => setSearch(event.target.value)}
                         onKeyUp={handleEnterKey}
                         aria-label="Find movie by name"
-                        placeholder="Write movie name"
+                        placeholder="Nome del film"
                     />
 
                     {/* Search Button */}
                     <button
                         onClick={getMovies}
+                        className="search-btn"
                     >
-                        Search
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
 
                 </div>
