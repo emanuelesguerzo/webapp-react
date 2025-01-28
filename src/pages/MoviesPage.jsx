@@ -65,7 +65,6 @@ const MoviesPage = () => {
     };
 
     useEffect(() => {
-        // Carica i film e popola i filtri per genere e anno
         axios.get(`${backendUrl}/movies`).then((resp) => {
             setMovies(resp.data.data);
             extractGenresAndYears(resp.data.data);

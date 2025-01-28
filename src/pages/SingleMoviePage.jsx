@@ -2,25 +2,46 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
+import ReviewForm from "../components/ReviewForm";
+
+const initialValues = {
+    name: "",
+    vote: 0,
+    text: "",
+}
 
 const SingleMoviePage = () => {
 
     const { slug } = useParams();
     const [movie, setMovie] = useState(null);
+    const [formData, setFormData] = useState(initialValues);
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-    useEffect(() => {
-
+    const getMovie = () => {
         axios.get(`${backendUrl}/movies/${slug}`).then((resp) => {
             setMovie(resp.data.data);
         });
+    }
 
+    useEffect(() => {
+        getMovie();
     }, []);
+
+    const storeReview = (formData) => {
+
+        axios.post(`${backendUrl}/movies/${slug}/reviews`, formData)
+            .then((resp) => {
+                setFormData(initialValues)
+                getMovie();
+            });
+    };
 
     return (
 
         <>
+        
             {movie && (
+
                 <>
                     <section className="details container">
                         <img
@@ -38,13 +59,22 @@ const SingleMoviePage = () => {
                         <div className="container reviews">
                             {movie.reviews.map(curReview => <ReviewCard key={curReview.id} review={curReview} />)}
                         </div>
+                        <div>
+                            <ReviewForm 
+                                formData={formData} 
+                                setFormData={setFormData} 
+                                onSubmitFunction={storeReview} 
+                            />
+                        </div>
                     </section>
                 </>
+
             )}
+
         </>
 
     )
-    
+
 }
 
 export default SingleMoviePage;
