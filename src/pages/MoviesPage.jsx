@@ -52,7 +52,7 @@ const MoviesPage = () => {
             if (!uniqueGenres.includes(movie.genre)) {
                 uniqueGenres.push(movie.genre);
             }
-            
+
             if (!uniqueYears.includes(movie.release_year)) {
                 uniqueYears.push(movie.release_year);
             }
@@ -65,10 +65,12 @@ const MoviesPage = () => {
     };
 
     useEffect(() => {
+
         axios.get(`${backendUrl}/movies`).then((resp) => {
             setMovies(resp.data.data);
             extractGenresAndYears(resp.data.data);
         });
+
     }, []);
 
     useEffect(() => {
@@ -84,56 +86,61 @@ const MoviesPage = () => {
             </section>
             <section>
                 <h2>Elenco di Film</h2>
-                <div className="searchbar">
-                    
-                    {/* Filter by Genre */}
-                    <select
-                        name="" 
-                        id=""
-                        value={selectedGenre}
-                        onChange={(event) => setSelectedGenre(event.target.value)}
-                    >
-                        <option value="">Genere</option>
-                        {genres.map((curGenre, index) => (
-                            <option key={index} value={curGenre}>
-                                {curGenre}
-                            </option>
-                        ))}
-                    </select>
+                <div className="search">
 
-                    {/* Filter by Release Year */}
-                    <select
-                        name="year"
-                        id="year"
-                        value={selectedYear}
-                        onChange={(event) => setSelectedYear(event.target.value)}
-                    >
-                        <option value="">Anno</option>
-                        {years.map((year, index) => (
-                            <option key={index} value={year}>
-                                {year}
-                            </option>
-                        ))}
-                    </select>
+                    <div className="filters">
 
-                    {/* Search Input */}
-                    <input
-                        type="search"
-                        value={search}
-                        onChange={(event) => setSearch(event.target.value)}
-                        onKeyUp={handleEnterKey}
-                        aria-label="Find movie by name"
-                        placeholder="Nome del film"
-                    />
+                        {/* Filter by Genre */}
+                        <select
+                            name=""
+                            id=""
+                            value={selectedGenre}
+                            onChange={(event) => setSelectedGenre(event.target.value)}
+                        >
+                            <option value="">Genere</option>
+                            {genres.map((curGenre, index) => (
+                                <option key={index} value={curGenre}>
+                                    {curGenre}
+                                </option>
+                            ))}
+                        </select>
 
-                    {/* Search Button */}
-                    <button
-                        onClick={getMovies}
-                        className="search-btn"
-                    >
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                    </button>
+                        {/* Filter by Release Year */}
+                        <select
+                            name="year"
+                            id="year"
+                            value={selectedYear}
+                            onChange={(event) => setSelectedYear(event.target.value)}
+                        >
+                            <option value="">Anno</option>
+                            {years.map((year, index) => (
+                                <option key={index} value={year}>
+                                    {year}
+                                </option>
+                            ))}
+                        </select>
 
+                    </div>
+
+                    <div className="searchbar">
+                        {/* Search Input */}
+                        <input
+                            type="search"
+                            value={search}
+                            onChange={(event) => setSearch(event.target.value)}
+                            onKeyUp={handleEnterKey}
+                            aria-label="Find movie by name"
+                            placeholder="Nome del film"
+                        />
+
+                        {/* Search Button */}
+                        <button
+                            onClick={getMovies}
+                            className="search-btn"
+                        >
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
                 </div>
                 {movies.length > 0 ? (
                     <div className="row ">

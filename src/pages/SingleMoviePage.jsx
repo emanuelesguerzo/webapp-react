@@ -39,31 +39,36 @@ const SingleMoviePage = () => {
     return (
 
         <>
-        
+
             {movie && (
 
                 <>
                     <section className="details container">
-                        <img
-                            className="detail-image"
-                            src={`${backendUrl}/poster-images/${movie.image}`}
-                            alt=""
-                        />
+                        <div className="detail-image-container">
+                            <img
+                                className="detail-image"
+                                src={`${backendUrl}/poster-images/${movie.image}`}
+                                alt=""
+                            />
+                        </div>
+
                         <h1>{movie.title}</h1>
-                        <p className="author-name">{movie.director}</p>
-                        <p className="vote">Voto medio: {movie.vote_avg}</p>
-                        <p className="genre">Genere: {movie.genre}</p>
-                        <p className="movie-abstract">{movie.abstract}</p>
+                        <div className="tags">
+                            <p className="author-name">{movie.director}</p>
+                            <p className="vote">Voto medio: {movie.vote_avg} <i className="fa-solid fa-star"></i></p>
+                            <p className="genre">{movie.genre}</p>
+                        </div>
+                        <p className="abstract">"{movie.abstract}"</p>
                     </section>
                     <section>
                         <div className="container reviews">
                             {movie.reviews.map(curReview => <ReviewCard key={curReview.id} review={curReview} />)}
                         </div>
-                        <div>
-                            <ReviewForm 
-                                formData={formData} 
-                                setFormData={setFormData} 
-                                onSubmitFunction={storeReview} 
+                        <div className="reviewform-container">
+                            <ReviewForm
+                                formData={formData}
+                                setFormData={setFormData}
+                                onSubmitFunction={storeReview}
                             />
                         </div>
                     </section>
