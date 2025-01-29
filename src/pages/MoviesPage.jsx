@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 
 const MoviesPage = () => {
@@ -83,9 +84,15 @@ const MoviesPage = () => {
             <section className="presentation">
                 <h1>Serata film?</h1>
                 <p>Vedi i film che abbiamo preparato per te!</p>
+                <Link 
+                    className="create-btn" 
+                    to="/movies/create"
+                >
+                    + Aggiungi un film
+                </Link>
             </section>
             <section>
-                <h2>Elenco di Film</h2>
+                <h2>Il tuo elenco:</h2>
                 <div className="search">
 
                     <div className="filters">

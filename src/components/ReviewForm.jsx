@@ -73,7 +73,7 @@ const ReviewForm = ({ onSubmitFunction, formData, setFormData }) => {
                     >
                         {availableVotes.map((curVote) => (
                             <option key={curVote} value={curVote}>
-                                {curVote} stelle
+                                {curVote}
                             </option>
                         ))}
                     </select>

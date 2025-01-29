@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
@@ -43,7 +43,14 @@ const SingleMoviePage = () => {
             {movie && (
 
                 <>
-                    <section className="details container">
+                <div className="container">
+                    <Link 
+                        to="/movies"
+                        className="home-btn"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i> Lista Film
+                    </Link>
+                    <section className="details">
                         <div className="detail-image-container">
                             <img
                                 className="detail-image"
@@ -55,13 +62,13 @@ const SingleMoviePage = () => {
                         <h1>{movie.title}</h1>
                         <div className="tags">
                             <p className="author-name">{movie.director}</p>
-                            <p className="vote">Voto medio: {movie.vote_avg} <i className="fa-solid fa-star"></i></p>
+                            <p className="vote">Voto medio: {movie.vote_avg ? movie.vote_avg : 0} <i className="fa-solid fa-star"></i></p>
                             <p className="genre">{movie.genre}</p>
                         </div>
                         <p className="abstract">"{movie.abstract}"</p>
                     </section>
                     <section>
-                        <div className="container reviews">
+                        <div className="reviews">
                             {movie.reviews.map(curReview => <ReviewCard key={curReview.id} review={curReview} />)}
                         </div>
                         <div className="reviewform-container">
@@ -72,6 +79,8 @@ const SingleMoviePage = () => {
                             />
                         </div>
                     </section>
+                </div>
+                    
                 </>
 
             )}

@@ -2,7 +2,7 @@
 :root {
     --main-color: #000000;
     --sub-color: #db0000;
-    --bg-color: #242323;
+    --bg-color: #181717;
     --main-text-color: #ffffff;
     --stars-color: #daa520;
 }
@@ -93,6 +93,10 @@ header h1 {
     margin-bottom: 40px;
 }
 
+.presentation p {
+    margin-bottom: 20px;
+}
+
 .presentation h1,
 h2 {
     color: var(--sub-color);
@@ -102,6 +106,39 @@ h2 {
 h2 {
     text-align: center;
     font-size: 1.3rem;
+}
+
+/* Create Button */
+.create-btn {
+    background-color: var(--sub-color);
+    color: var(--main-text-color);
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.create-btn:hover {
+    background-color: #a90404;
+}
+
+/* Home Button */
+.home-btn {
+    background-color: #000000;
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4), 0 0 2px 2px rgba(255, 255, 255, 0.3);
+    transition: background-color 0.5s ease-in-out;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: auto;
+}
+
+.home-btn:hover {
+    background-color: #202020;
 }
 
 /* Filters and Searchbar */
@@ -140,7 +177,7 @@ input {
     transition: all 0.4s ease-in-out;
 }
 
-/* Button Hover */
+/* Search Button Hover */
 .search-btn:hover {
     background-color: var(--main-text-color);
     color: var(--bg-color);
@@ -252,6 +289,7 @@ input {
     gap: 20px;
     flex-wrap: wrap;
     font-weight: bold;
+    align-items: center;
 }
 
 .details .author-name,
@@ -391,6 +429,57 @@ label {
     color: var(--sub-color);
 }
 
+/* CREATE PAGE */
+.create-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.4), 0 0 2px 2px rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.create-main-title {
+    margin-bottom: 20px;
+}
+
+.create-form > div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.create-form > div > input, textarea {
+    padding: 6px;
+}
+
+.create-error {
+    padding: 10px;
+    border: 1px solid black;
+    border: 1px solid var(--sub-color);
+    border-radius: 12px;
+    background-color: rgb(209, 82, 82);
+    margin-bottom: 20px;
+}
+
+.error-title {
+    margin-bottom: 10px;
+}
+
+.create-error > ul > li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
 /* FOOTER */
 footer {
     margin-top: auto;
@@ -487,6 +576,7 @@ footer {
         width: 90%;
     }
 
+    .create-form,
     .abstract,
     .review-cards, 
     .form {
